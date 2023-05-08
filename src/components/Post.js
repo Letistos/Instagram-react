@@ -18,7 +18,7 @@ return(
     (<li key={postagem.avatar} >
        
 
-        <div className="post">
+        <div data-test="post" className="post">
           <div className="topo">
             <div className="usuario">
               <img src={postagem.avatar} alt="avatar"/>{postagem.user}</div>
@@ -28,14 +28,14 @@ return(
           </div>
 
           <div className="conteudo">
-            <img src={postagem.picture} alt="post"/>
+            <img data-test="post-image" src={postagem.picture} alt="post"/>
           </div>
 
           <div className="fundo">
             <div className="acoes">
               <div>
-                <ion-icon name="heart-outline"></ion-icon>
-                <ion-icon name="chatbubble-outline"></ion-icon>
+                <ion-icon data-test="like-post" name="heart-outline"></ion-icon>
+                <ion-icon data-test="save-post" name="chatbubble-outline"></ion-icon>
                 <ion-icon name="paper-plane-outline"></ion-icon>
               </div>
               <div>
@@ -46,7 +46,7 @@ return(
             <div className="curtidas">
               <img src={postagem.curtiu} alt="respondeai"/>
               <div className="texto">
-                Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
+                Curtido por <strong>respondeai</strong> e <strong data-test="likes-number">outras 101.523 pessoas</strong>
               </div>
             </div>
           </div>
