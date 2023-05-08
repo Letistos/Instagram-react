@@ -1,10 +1,23 @@
-export default function User (){
+export default function User (){   
+
+    let novoNome;
+    
+    const userName = 'thekermit'// prompt('qual o nome de usuário?');
+    
+    if(userName ===''|| userName === undefined || userName === null){
+        novoNome = 'the';
+    }else{
+       novoNome = userName;
+    }
+
+
     return(
-        <div class="usuario">
+
+        <div className="usuario">
             <img data-test="profile-image" src={require('../assets/kermit-cha.png')} alt="imagem de perfil" />
-            <div class="texto">
+            <div className="texto">
                 <span data-test="name">
-                    <strong>thekermit</strong>
+                    <strong> { novoNome } </strong>
                     <ion-icon data-test="edit-name" name="pencil"></ion-icon>
                 </span>
             </div>

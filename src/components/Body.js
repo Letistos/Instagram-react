@@ -1,4 +1,4 @@
-import Posts from './Stories'
+import Posts from './Posts'
 
 import SideBar from './SideBar'
 
@@ -7,9 +7,9 @@ import Stories from './Stories'
 
 export default function Body(){
     return(
-        <div class="corpo">
+        <div className="corpo">
 
-          <div class="esquerda">
+          <div className="esquerda">
             <Stories/>            
             <Posts/>           
           </div>
