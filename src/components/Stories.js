@@ -1,7 +1,7 @@
 import EntradaStorie from './Story'
 export default function Stories() {
   return (
-    <div className="stories">
+    <div class="stories">
 
       <EntradaStorie/> 
 
