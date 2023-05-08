@@ -1,3 +1,4 @@
+
 export default function EntradaPost(){
 
 const listaPosts = [
@@ -11,11 +12,11 @@ const listaPosts = [
 
 return(
 
-    <ul>
+    <ul className='posts'>
         
     { listaPosts.map( (postagem) => 
     
-    (<li key={postagem.avatar} >
+    (<li key={postagem.avatar} className='post' >
        
 
         <div data-test="post" className="post">
@@ -34,7 +35,7 @@ return(
           <div className="fundo">
             <div className="acoes">
               <div>
-                <ion-icon data-test="like-post" name="heart-outline"></ion-icon>
+                <ion-icon className="curtiu" data-test="like-post" name="heart-outline" ></ion-icon>
                 <ion-icon data-test="save-post" name="chatbubble-outline"></ion-icon>
                 <ion-icon name="paper-plane-outline"></ion-icon>
               </div>

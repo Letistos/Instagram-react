@@ -8,21 +8,25 @@ export default function EntradaStorie(){
         {user:'sapolino', picture:require('../assets/logo-perereca.png'), descricao:"3"},
         {user:'forg', picture:require('../assets/kermit-sorrindo.jpeg'),descricao:"4"},
         {user:'mcSapao', picture:require('../assets/logo-sapo-preto.jpg'),descricao:"5"},
-        {user:'sapino', picture:require('../assets/sapo-cama-sapinho.jpeg'),descricao:"6"}
+        {user:'sapino', picture:require('../assets/sapo-cama-sapinho.jpeg'),descricao:"6"},
+        {user:'sapolino', picture:require('../assets/logo-perereca.png'), descricao:"7"},
+        {user:'forg', picture:require('../assets/kermit-sorrindo.jpeg'),descricao:"8"}
     ];
 
     return(
 
-        <ul>
+        <ul className='lista'>
+
         { listaUsers.map( (story) => 
         
-        (<li key={story.descricao} >
+        (<li key={story.descricao} className='item' >
            
                 <div className="story">
                 
 
-                    <div className="imagem">
+                    <div className='imagem'>
                          <img src={ story.picture } alt={ story.descricao }/>
+                       
                      </div>
 
                      <div className="usuario">{ story.user }</div>

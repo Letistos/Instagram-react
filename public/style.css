@@ -87,9 +87,8 @@
     max-width: 614px;
   }
   
-  .stories {
+  .stories{
     display: flex;
-    flex-direction: row;
     align-items: center;
     height: 118px;
     border-radius: 3px;
@@ -109,15 +108,17 @@
     font-size: 12px;
     cursor: pointer;
     margin-right: 10px;
+    position: relative;
   }
   
   .story .imagem {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 66px;
-    width: 66px;
-    background-image: url('../src/assets/stories_background.jpg');
+    height: 80px;
+    width: 80px;
+     background-image: url('../src/assets/stories_background.jpg');
+   
     
   }
   
@@ -125,6 +126,7 @@
     width: 56px;
     height: 56px;
     border-radius: 50%;
+    
   }
   
   .story .usuario {
@@ -310,3 +312,31 @@
     width:103px;
     height:23px;
   }
+  .salvou{
+    color: goldenrod;
+  }
+  .curtiu{
+   
+    background-color: red;
+  }
+  .lista{
+    display: flex;
+    padding: 5px;
+    justify-content: space-between;
+    
+    
+    
+  }
+  .item{
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
+  
+  }
+  .borda{
+    position:absolute
+    height: 60px;
+    width: 6px;
+   
+  }
+  

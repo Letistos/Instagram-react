@@ -1,24 +1,35 @@
-export default function User (){   
+import { useState } from 'react';
 
-    let novoNome;
-    
-    const userName = 'thekermit'// prompt('qual o nome de usuário?');
-    
-    if(userName ===''|| userName === undefined || userName === null){
-        novoNome = 'the';
-    }else{
-       novoNome = userName;
+export default function User() {
+
+    let [userName, setName] = useState('thekermit');
+
+    function perguntarNome() {
+
+        let novoNome = prompt('qual seu nome?');
+        setName(novoNome);
+
+
     }
 
+    let [userImg, setImage] = useState('https://ih1.redbubble.net/image.1414841714.5868/pp,504x498-pad,600x600,f8f8f8.u2.jpg');
+
+    function alteraImagem() {
+
+        let novaImg = prompt('qual a url da nova imagem de perfil?');
+
+        setImage(novaImg);
+
+    }
 
     return(
 
         <div className="usuario">
-            <img data-test="profile-image" src={require('../assets/kermit-cha.png')} alt="imagem de perfil" />
+            <img onClick={alteraImagem} data-test="profile-image" src={ userImg ? `${userImg}`: 'https://ih1.redbubble.net/image.1414841714.5868/pp,504x498-pad,600x600,f8f8f8.u2.jpg'} alt="foto de perfil"/>
             <div className="texto">
                 <span data-test="name">
-                    <strong> { novoNome } </strong>
-                    <ion-icon data-test="edit-name" name="pencil"></ion-icon>
+                    <strong> { userName ? `${userName}`: `thekermit`} </strong>
+                    <ion-icon onClick={perguntarNome} data-test="edit-name" name="pencil"></ion-icon>
                 </span>
             </div>
         </div>
