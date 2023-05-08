@@ -1,16 +1,15 @@
 import { useState } from 'react';
-export default function EntradaPost(){
 
 const listaPosts = [
-        {user:'frogged', avatar:require('../assets/sapo-bracos-cruzados.jpg'), picture:require('../assets/kermit-green-painting.jpg'), post:"01", curtiu:require('../assets/logo-sapo-preto.jpg')},
-        {user:'frog', avatar:require('../assets/sapo-bracos-cruzados.jpg'), picture:require('../assets/kermit-gif.gif'), post:"02",curtiu:require('../assets/sapo-cartola.webp')},
-        {user:'froggy', avatar:require('../assets/logo-perereca.png'), picture:require('../assets/sapo-deitado-na-flor.jpg'), post:"03",curtiu:require('../assets/logo-sapo-preto.jpg')},
-        {user:'forg', avatar:require('../assets/kermit-sorrindo.jpeg'), picture:require('../assets/sapo-laranja.webp'),post:"04",curtiu:require('../assets/logo-sapo-preto.jpg')},
-        {user:'mcSapao', avatar:require('../assets/logo-sapo-preto.jpg'), picture:require('../assets/sapo-bracos-cruzados.jpg'),post:"05",curtiu:require('../assets/logo-sapo-preto.jpg')},
-        {user:'sapino', avatar:require('../assets/sapo-cama-sapinho.jpeg'), picture:require('../assets/sapo-cama-sapinho.jpeg'),post:"06",curtiu:require('../assets/logo-sapo-preto.jpg')}
+  {user:'frogged', avatar:require('../assets/sapo-bracos-cruzados.jpg'), picture:require('../assets/kermit-green-painting.jpg'), post:"01", curtiu:require('../assets/logo-sapo-preto.jpg')},
+  {user:'frog', avatar:require('../assets/sapo-bracos-cruzados.jpg'), picture:require('../assets/kermit-gif.gif'), post:"02",curtiu:require('../assets/sapo-cartola.webp')},
+  {user:'froggy', avatar:require('../assets/logo-perereca.png'), picture:require('../assets/sapo-deitado-na-flor.jpg'), post:"03",curtiu:require('../assets/logo-sapo-preto.jpg')},
+  {user:'forg', avatar:require('../assets/kermit-sorrindo.jpeg'), picture:require('../assets/sapo-laranja.webp'),post:"04",curtiu:require('../assets/logo-sapo-preto.jpg')},
+  {user:'mcSapao', avatar:require('../assets/logo-sapo-preto.jpg'), picture:require('../assets/sapo-bracos-cruzados.jpg'),post:"05",curtiu:require('../assets/logo-sapo-preto.jpg')},
+  {user:'sapino', avatar:require('../assets/sapo-cama-sapinho.jpeg'), picture:require('../assets/sapo-cama-sapinho.jpeg'),post:"06",curtiu:require('../assets/logo-sapo-preto.jpg')}
 ];
 
-
+export default function EntradaPost(){
 return(
 
     <ul class='posts'>
@@ -33,11 +32,12 @@ return(
             <img data-test="post-image" src={postagem.picture} alt="post"/>
           </div>
 
-          <div className="fundo">
-            
-            <Acoes/>
+        <div className="fundo">
 
-            <div class="curtidas">
+          <Acoes/>
+
+
+              <div class="curtidas">
               <img src={postagem.curtiu} alt="respondeai"/>
               <div className="texto">
                 Curtido por <strong>respondeai</strong> e <strong data-test="likes-number">outras 101.523 pessoas</strong>
@@ -45,6 +45,7 @@ return(
             </div>
 
           </div>
+          
         </div>     
 
         </li>) ) }
@@ -53,7 +54,8 @@ return(
 }
 
 function Acoes(){
-  let [classBookmark, setClass] = useState('');
+
+let [classBookmark, setClass] = useState('');
 
 function trocarClasse(){
   if(classBookmark === ''){
@@ -73,16 +75,47 @@ function trocarNome(){
   }
 }
 return(
+            
+            <div className="acoes">
 
-  <div className="acoes">
+
+              <Heart/>
+             
               <div>
-                <ion-icon data-test="like-post" name="heart-outline" ></ion-icon>
-                <ion-icon data-test="save-post" name="chatbubble-outline"></ion-icon>
-                <ion-icon name="paper-plane-outline"></ion-icon>
-              </div>
-              <div>
-                <ion-icon onClick={() => { trocarNome(); trocarClasse()}} class={classBookmark} name={nameBookmark}></ion-icon>
+                <ion-icon data-test="save-post" onClick={() => { trocarNome(); trocarClasse()}} class={classBookmark} name={nameBookmark}></ion-icon>
               </div>
             </div>
+
+  
 );
 }
+
+function Heart(){
+  let [classHeart, setHeart] = useState('');
+
+      function adicionarClasse(){
+       if(classHeart === ''){
+         setHeart('curtiu')
+       }else{
+         setHeart('')
+        }
+     }
+
+   let [nameHeart, setNome] = useState('heart-outline');
+
+function mudarNome(){
+  if(nameHeart === 'heart-outline'){
+    setNome('heart')
+  }else{
+   setNome('heart-outline')
+  }
+ }
+ return(
+  
+    <div>
+    <ion-icon data-test="like-post" onClick={() => { mudarNome(); adicionarClasse()}} class={classHeart} name={nameHeart}></ion-icon>
+    <ion-icon  name="chatbubble-outline"></ion-icon>
+    <ion-icon name="paper-plane-outline"></ion-icon>
+    </div>
+  );
+ }
